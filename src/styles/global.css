@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* 简单的 markdown 样式，为文章详情页补充基础样式 */
 .prose h2 {
