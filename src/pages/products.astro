@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="产品中心 - 立刷POS">
+	<!-- Hero Section -->
+	<section class="relative bg-gray-900 text-white py-20 overflow-hidden">
+		<!-- 半透明遮罩 -->
+		<div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center drop-shadow-md">
+			<h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">立刷全系列产品</h1>
+			<p class="text-xl text-gray-200 max-w-2xl mx-auto font-medium">针对不同经营场景提供定制化的收款解决方案</p>
+		</div>
+	</section>
+
+	<!-- 产品列表 -->
+	<section class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			
+			<div class="space-y-24">
+				<!-- 立刷1 -->
+				<div class="flex flex-col md:flex-row items-center gap-12">
+					<div class="w-full md:w-1/2 flex justify-center bg-gray-50 rounded-3xl p-8 md:p-12">
+						<img src="/images/立刷1.png" alt="立刷1" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
+					</div>
+					<div class="w-full md:w-1/2">
+						<div class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">经典畅销款</div>
+						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷1</h2>
+						<p class="text-gray-600 text-lg mb-8 leading-relaxed">
+							立刷经典机型，小巧便携，支持多种支付方式，商户收款的好帮手。适合各类小型零售、餐饮及移动商户使用。
+						</p>
+						<ul class="space-y-4 mb-8">
+							<li class="flex items-start">
+								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<div>
+									<h4 class="font-bold text-gray-900">费率优惠</h4>
+									<p class="text-gray-500 text-sm">极具竞争力的刷卡费率，帮您节省每一分经营成本。</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<div>
+									<h4 class="font-bold text-gray-900">银联认证</h4>
+									<p class="text-gray-500 text-sm">通过银联多项安全认证，资金交易安全有保障。</p>
+								</div>
+							</li>
+						</ul>
+						<a href="/contact" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">免费办理</a>
+					</div>
+				</div>
+
+				<!-- 立刷云电签 -->
+				<div class="flex flex-col md:flex-row-reverse items-center gap-12">
+					<div class="w-full md:w-1/2 flex justify-center bg-gray-50 rounded-3xl p-8 md:p-12">
+						<img src="/images/立刷云电签.png" alt="立刷云电签" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
+					</div>
+					<div class="w-full md:w-1/2">
+						<div class="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">新一代智能终端</div>
+						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷云电签</h2>
+						<p class="text-gray-600 text-lg mb-8 leading-relaxed">
+							新一代电签POS，内置流量卡，无需连接手机即可独立完成收单。全电子化签购单，高清大屏，操作更顺畅。
+						</p>
+						<ul class="space-y-4 mb-8">
+							<li class="flex items-start">
+								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<div>
+									<h4 class="font-bold text-gray-900">内置通讯</h4>
+									<p class="text-gray-500 text-sm">自带4G/WiFi模块，开机即用，摆脱手机蓝牙连接的繁琐。</p>
+								</div>
+							</li>
+							<li class="flex items-start">
+								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<div>
+									<h4 class="font-bold text-gray-900">电子签单</h4>
+									<p class="text-gray-500 text-sm">直接在屏幕上完成签名，环保高效，免去换纸烦恼。</p>
+								</div>
+							</li>
+						</ul>
+						<a href="/contact" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">免费办理</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+</Layout>

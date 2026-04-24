@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const newsEntries = await getCollection('news');
+	return newsEntries.map(entry => ({
+		// Remove .md extension for prettier URLs if present
+		params: { slug: entry.id.replace(/\.md$/, '') },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} - 立刷POS官网资讯`}>
+	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+		<a href="/#news" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8 font-medium">
+			<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+			返回资讯列表
+		</a>
+		
+		<article class="bg-white rounded-2xl shadow-sm p-8 md:p-12">
+			<header class="mb-10 text-center border-b border-gray-100 pb-10">
+				<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+					{entry.data.title}
+				</h1>
+				<div class="flex items-center justify-center text-gray-500 text-sm">
+					<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+					<time datetime={entry.data.date.toISOString()}>
+						{entry.data.date.toLocaleDateString('zh-CN', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</time>
+				</div>
+			</header>
+
+			<div class="prose prose-blue prose-lg max-w-none text-gray-700">
+				<Content />
+			</div>
+		</article>
+	</div>
+</Layout>
+
+<style is:global>
+	@reference "tailwindcss";
+	/* 简单的 markdown 样式，Astro 没有内置完整 prose，我们手写一点或依赖 @tailwindcss/typography，
+	   由于没装 @tailwindcss/typography 插件，我们在这里补充基础样式 */
+	.prose h2 {
+		@apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+	}
+	.prose h3 {
+		@apply text-xl font-bold text-gray-900 mt-6 mb-3;
+	}
+	.prose p {
+		@apply mb-4 leading-relaxed;
+	}
+	.prose ul {
+		@apply list-disc list-inside mb-4 pl-4;
+	}
+	.prose ol {
+		@apply list-decimal list-inside mb-4 pl-4;
+	}
+	.prose strong {
+		@apply font-semibold text-gray-900;
+	}
+	.prose blockquote {
+		@apply border-l-4 border-blue-500 pl-4 italic text-gray-600 bg-gray-50 py-2 my-4 rounded-r-md;
+	}
+</style>

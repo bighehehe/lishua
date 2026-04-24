@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="立刷POS官网 - 您的全能支付助手" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/webp" href="/images/logo.webp" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-50 text-gray-900 font-sans">
+		<header class="bg-white shadow-sm sticky top-0 z-50">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16 items-center">
+					<!-- Logo -->
+					<div class="flex items-center">
+						<a href="/" class="flex-shrink-0 flex items-center gap-2">
+							<img class="h-8 w-auto rounded-sm" src="/images/logo.webp" alt="立刷 Logo" />
+							<span class="font-bold text-xl text-blue-600">立刷</span>
+						</a>
+					</div>
+					
+					<!-- 桌面端导航 -->
+					<nav class="hidden md:flex space-x-8">
+						<a href="/" class="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">首页</a>
+						<a href="/products" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">产品中心</a>
+						<a href="/news" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">资讯动态</a>
+						<a href="/about" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">关于我们</a>
+						<a href="/contact" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">联系我们</a>
+					</nav>
+
+					<!-- 移动端菜单按钮 -->
+					<div class="flex items-center md:hidden">
+						<button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-expanded="false">
+							<span class="sr-only">打开主菜单</span>
+							<!-- 汉堡图标 -->
+							<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 移动端导航面板 -->
+			<div class="md:hidden hidden" id="mobile-menu">
+				<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-100 shadow-lg">
+					<a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">首页</a>
+					<a href="/products" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-blue-600 hover:bg-gray-50">产品中心</a>
+					<a href="/news" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-blue-600 hover:bg-gray-50">资讯动态</a>
+					<a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-blue-600 hover:bg-gray-50">关于我们</a>
+					<a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-blue-600 hover:bg-gray-50">联系我们</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="min-h-screen">
+			<slot />
+		</main>
+
+		<footer class="bg-gray-800 text-white mt-12 py-12">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+					<div class="col-span-1 md:col-span-2">
+						<div class="flex items-center gap-2 mb-4">
+							<img class="h-8 w-auto rounded-sm" src="/images/logo.webp" alt="立刷 Logo" />
+							<span class="font-bold text-xl tracking-wider">立刷POS</span>
+						</div>
+						<p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+							立刷致力于为小微商户提供安全、便捷、高效的支付解决方案，助力千万商家数字化经营。
+						</p>
+					</div>
+					<div>
+						<h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">快速链接</h3>
+						<ul class="space-y-2">
+							<li><a href="/products" class="text-gray-400 hover:text-white transition-colors text-sm">产品中心</a></li>
+							<li><a href="/news" class="text-gray-400 hover:text-white transition-colors text-sm">资讯动态</a></li>
+							<li><a href="/about" class="text-gray-400 hover:text-white transition-colors text-sm">关于我们</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-gray-300">联系我们</h3>
+						<ul class="space-y-2 text-sm text-gray-400">
+							<li class="flex items-center gap-2">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+								400-000-0000
+							</li>
+							<li class="flex items-center gap-2">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+								service@lishua.com
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+					<p class="text-gray-400 text-sm">© {new Date().getFullYear()} 立刷POS. All rights reserved.</p>
+					<div class="text-gray-500 text-xs">
+						<span>粤ICP备xxxxxxxx号-x</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// 移动端菜单切换逻辑
+			const btn = document.getElementById('mobile-menu-button');
+			const menu = document.getElementById('mobile-menu');
+
+			if (btn && menu) {
+				btn.addEventListener('click', () => {
+					menu.classList.toggle('hidden');
+				});
+			}
+		</script>
+	</body>
+</html>
