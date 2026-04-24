@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+/* 简单的 markdown 样式，为文章详情页补充基础样式 */
+.prose h2 {
+	@apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+}
+.prose h3 {
+	@apply text-xl font-bold text-gray-900 mt-6 mb-3;
+}
+.prose p {
+	@apply mb-4 leading-relaxed;
+}
+.prose ul {
+	@apply list-disc list-inside mb-4 pl-4;
+}
+.prose ol {
+	@apply list-decimal list-inside mb-4 pl-4;
+}
+.prose strong {
+	@apply font-semibold text-gray-900;
+}
+.prose blockquote {
+	@apply border-l-4 border-blue-500 pl-4 italic text-gray-600 bg-gray-50 py-2 my-4 rounded-r-md;
+}
