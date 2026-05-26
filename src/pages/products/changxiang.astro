@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const product = {
+	name: '立刷畅享版',
+	tagline: '轻巧便携之选',
+	image: '/images/立刷畅想版.webp',
+	description: '嘉联全新力作，畅享版电签，无需APP，操作更加便捷，安全合规，快速清算，商户收款必备产品。',
+	highlights: [
+		'银联认证，资金安全有保障',
+		'优惠费率，降低商户经营成本',
+		'大屏触控，智能系统易操作',
+		'支持刷卡、扫码、NFC全支付',
+		'商户管理系统，数据一目了然',
+	],
+	features: [
+		{
+			title: '安全认证',
+			desc: '通过银联安全认证，采用多重加密技术，保障交易数据安全，防止信息泄露，让商户和消费者放心使用。',
+			icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+		},
+		{
+			title: '全能支付',
+			desc: '支持刷卡、插卡、挥卡、扫码（主扫/被扫）、NFC等多种支付方式，覆盖各类收款场景，提升收款效率。',
+			icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z',
+		},
+		{
+			title: '长效电池',
+			desc: '内置大容量锂电池，单次充电可持续使用8-10小时，满足商户全天候经营需求，无需频繁充电。',
+			icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+		},
+		{
+			title: '快速结算',
+			desc: '支持T+0秒到账，资金实时入账，无需等待，提高资金周转效率，解决商户资金流动性需求。',
+			icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+		},
+	],
+	rates: [
+		{ label: '贷记卡', value: '0.60%', note: '信用卡优惠费率' },
+		{ label: '借记卡', value: '0.60%', note: '储蓄卡优惠费率' },
+		{ label: '扫码支付', value: '0.38%', note: '微信/支付宝/云闪付' },
+		{ label: '外币卡', value: '0.60%', note: '万事达/美国运通' },
+	],
+	steps: [
+		{ num: '1', title: '开机与激活', desc: '长按电源键3秒开机，首次使用需要按照屏幕提示完成激活，包括网络连接、账号绑定等步骤。', tags: ['连接网络', '账号绑定'] },
+		{ num: '2', title: '收款操作', desc: '在主界面选择"收款"，输入金额后，根据客户支付方式选择相应的支付渠道（刷卡、扫码等）。', tags: ['输入金额', '选择支付方式'] },
+		{ num: '3', title: '交易查询', desc: '在主界面选择"交易记录"，可查看历史交易，支持按日期、金额等条件筛选，也可导出交易明细。', tags: ['历史记录', '筛选功能', '导出数据'] },
+		{ num: '4', title: '系统设置', desc: '在"设置"中可以调整网络配置、声音提示、屏幕亮度等，也可以进行系统更新和安全设置。', tags: ['系统配置', '安全设置', '系统更新'] },
+	],
+	faqs: [
+		{
+			q: '如何激活POS机？',
+			a: '收到POS机后，按照以下步骤激活：1. 长按电源键3秒开机；2. 连接WiFi或插入SIM卡；3. 打开激活应用，输入激活码；4. 按照屏幕提示完成身份验证；5. 等待系统自动下载最新固件并安装；6. 重启设备后即可使用。',
+		},
+		{
+			q: 'POS机支持哪些支付方式？',
+			a: '我们的电签版POS机支持多种支付方式：银行卡支付（磁条卡、IC卡）、NFC非接触式支付（Apple Pay、Samsung Pay等）、微信支付、支付宝等扫码支付、云闪付。',
+		},
+		{
+			q: '交易资金多久到账？',
+			a: 'T+1到账：工作日当天的交易，资金将在次日到账；节假日交易将顺延至下一个工作日处理；VIP商户可开通T+0秒到账服务（需单独申请）。',
+		},
+	],
+	specs: {
+		hardware: [
+			['处理器', '高性能CPU'], ['屏幕', '5.5英寸触控屏'], ['分辨率', '1280×720 HD'],
+			['摄像头', '后置摄像头'], ['尺寸', '120×68×18mm'], ['重量', '180g'],
+		],
+		battery: [
+			['电池容量', '5000mAh 锂电池'], ['待机时间', '14天'], ['连续工作', '2天'],
+			['充电接口', 'Type-C'], ['充电时间', '约2小时'], ['快充支持', '支持18W快充'],
+		],
+		connection: [
+			['网络连接', '4G全网通'], ['WiFi', 'IEEE 802.11 b/g/n'], ['蓝牙', '蓝牙4.2'],
+			['SIM卡', 'Micro SIM'], ['GPS', '支持'], ['NFC', '支持'],
+		],
+		payment: [
+			['支付方式', '刷卡/扫码/闪付'], ['刷卡费率', '0.60%'], ['扫码费率', '0.38%'],
+			['闪付费率', '0.38%'], ['结算速度', '快速结算'], ['支持卡种', '银联/万事达/运通'],
+		],
+	},
+};
+---
+
+<Layout title={`${product.name} - 立刷POS`} currentPath="/products">
+	<!-- Hero -->
+	<section class="relative bg-blue-600 text-white py-20 md:py-28 overflow-hidden">
+		<div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[420px] h-[420px] bg-blue-400 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
+		<div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[320px] h-[320px] bg-blue-500 rounded-full blur-[110px] opacity-20 pointer-events-none"></div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col md:flex-row items-center gap-12">
+				<div class="w-full md:w-1/2 flex justify-center">
+					<div class="bg-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+						<img src={product.image} alt={product.name} class="h-56 md:h-72 object-contain drop-shadow-2xl" />
+					</div>
+				</div>
+				<div class="w-full md:w-1/2 text-center md:text-left">
+					<div class="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">银联认证</div>
+					<h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">{product.name}</h1>
+					<p class="text-blue-100 text-lg mb-6 leading-relaxed">{product.description}</p>
+					<ul class="space-y-2 mb-8 text-sm">
+						{product.highlights.map((h) => (
+							<li class="flex items-center gap-2 justify-center md:justify-start">
+								<svg class="w-4 h-4 text-green-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<span>{h}</span>
+							</li>
+						))}
+					</ul>
+					<div class="flex flex-wrap gap-4 justify-center md:justify-start">
+						<div class="bg-white/15 backdrop-blur-sm rounded-xl px-5 py-3 text-center">
+							<div class="text-2xl font-bold">0.60%</div>
+							<div class="text-xs text-blue-200">刷卡费率</div>
+						</div>
+						<div class="bg-white/15 backdrop-blur-sm rounded-xl px-5 py-3 text-center">
+							<div class="text-2xl font-bold">0.38%</div>
+							<div class="text-xs text-blue-200">扫码费率</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 锚点导航 -->
+	<nav class="sticky top-16 z-40 bg-white border-b border-gray-100 shadow-sm">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex overflow-x-auto gap-1 py-2">
+				<a href="#features" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">产品特点</a>
+				<a href="#rate" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">费率说明</a>
+				<a href="#guide" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">使用指南</a>
+				<a href="#faq" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">常见问题</a>
+				<a href="#specs" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">产品规格</a>
+				<a href="#contact" class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap">办理申请</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+		<Breadcrumbs items={[{label: '产品中心', href: '/products'}, {label: product.name}]} />
+	</div>
+
+	<!-- 产品特点 -->
+	<section id="features" class="py-10 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">产品特点</h2>
+				<p class="text-gray-500 max-w-xl mx-auto">安全、高效、便捷，为您的经营保驾护航</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				{product.features.map((f) => (
+					<div class="flex gap-5 p-6 rounded-2xl bg-gray-50 hover:bg-blue-50 transition-colors">
+						<div class="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
+							<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={f.icon}></path></svg>
+						</div>
+						<div>
+							<h3 class="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
+							<p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- 费率说明 -->
+	<section id="rate" class="py-20 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">费率说明</h2>
+				<p class="text-gray-500 max-w-xl mx-auto">费率透明，无隐藏费用</p>
+			</div>
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+				{product.rates.map((r) => (
+					<div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+						<div class="text-3xl font-extrabold text-blue-600 mb-2">{r.value}</div>
+						<div class="font-semibold text-gray-900 mb-1">{r.label}</div>
+						<div class="text-xs text-gray-500">{r.note}</div>
+					</div>
+				))}
+			</div>
+			<p class="text-center text-xs text-gray-400 mt-6">* 所有交易均为快速到账，无额外提现费。具体费率可能根据政策调整，详情联系客服。</p>
+		</div>
+	</section>
+
+	<!-- 使用指南 -->
+	<section id="guide" class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">使用指南</h2>
+				<p class="text-gray-500 max-w-xl mx-auto">简单四步，轻松上手</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				{product.steps.map((s) => (
+					<div class="relative">
+						<div class="text-6xl font-extrabold text-blue-100 mb-2">{s.num}</div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed mb-3">{s.desc}</p>
+						<div class="flex flex-wrap gap-2">
+							{s.tags.map((t) => (
+								<span class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full">{t}</span>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- 常见问题 -->
+	<section id="faq" class="py-20 bg-gray-50">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">常见问题</h2>
+			</div>
+			<div class="space-y-4">
+				{product.faqs.map((faq, i) => (
+					<div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+						<button class="w-full flex items-center justify-between p-5 text-left cursor-pointer faq-toggle" data-index={i}>
+							<span class="font-semibold text-gray-900 pr-4">{faq.q}</span>
+							<svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+						</button>
+						<div class="faq-content hidden px-5 pb-5">
+							<p class="text-sm text-gray-600 leading-relaxed">{faq.a}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- 产品规格 -->
+	<section id="specs" class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">产品规格</h2>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{[
+					{ title: '硬件参数', items: product.specs.hardware },
+					{ title: '电池与续航', items: product.specs.battery },
+					{ title: '连接与通信', items: product.specs.connection },
+					{ title: '支付功能', items: product.specs.payment },
+				].map((group) => (
+					<div class="bg-gray-50 rounded-2xl p-6">
+						<h3 class="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">{group.title}</h3>
+						<div class="divide-y divide-gray-200">
+							{group.items.map(([key, val]) => (
+								<div class="flex justify-between py-2.5 text-sm">
+									<span class="text-gray-500">{key}</span>
+									<span class="text-gray-900 font-medium">{val}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- 办理申请 -->
+	<section id="contact" class="py-20 bg-blue-600">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold text-white mb-5">立即申请办理</h2>
+			<p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">无论您是想了解更多产品信息，还是有意向成为我们的代理商，都可以通过以下方式联系我们。</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-full font-bold text-lg transition-colors shadow-lg">在线咨询</a>
+				<a href="tel:400-926-6655" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors">400-926-6655</a>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		document.querySelectorAll('.faq-toggle').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const content = btn.nextElementSibling;
+				const icon = btn.querySelector('.faq-icon');
+				if (content) content.classList.toggle('hidden');
+				if (icon) icon.classList.toggle('rotate-180');
+			});
+		});
+	</script>
+</Layout>

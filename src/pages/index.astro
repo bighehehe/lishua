@@ -4,15 +4,63 @@ import Layout from '../layouts/Layout.astro';
 
 // 获取按日期排序的最新资讯
 const allNews = await getCollection('news');
-const sortedNews = allNews.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedNews = allNews.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const paymentMethods = [
+	{ src: '/images/unionpay.svg', alt: '银联', label: '银联支付', className: 'h-10 md:h-12' },
+	{ src: '/images/visa.svg', alt: 'Visa', label: 'Visa', className: 'h-8 md:h-10' },
+	{ src: '/images/wechat.svg', alt: '微信支付', label: '微信支付', className: 'h-10 md:h-12' },
+	{ src: '/images/支付宝支付.svg', alt: '支付宝', label: '支付宝', className: 'h-10 md:h-12' },
+	{ src: '/images/云闪付.svg', alt: '云闪付', label: '云闪付', className: 'h-10 md:h-12' },
+];
+
+const businessScenes = [
+	{
+		title: '零售便利',
+		description: '商超 / 便利店 / 生鲜',
+		image: '/images/零售便利.webp',
+	},
+	{
+		title: '餐饮美食',
+		description: '餐厅 / 小吃 / 茶饮',
+		image: '/images/餐饮美食.webp',
+	},
+	{
+		title: '服装百货',
+		description: '服装鞋帽 / 美妆日化',
+		image: '/images/服装百货.webp',
+	},
+	{
+		title: '物流移动',
+		description: '快递外卖 / 移动摊贩',
+		image: '/images/物流移动.webp',
+	},
+];
+
+const serviceSteps = [
+	{
+		title: '提交申请',
+		description: '在线留下联系方式，顾问一对一沟通经营场景与设备需求。',
+	},
+	{
+		title: '机型匹配',
+		description: '根据门店类型、收款频次和预算推荐更合适的终端方案。',
+	},
+	{
+		title: '快速装机',
+		description: '资料审核通过后即可安排发机、激活与收款培训。',
+	},
+	{
+		title: '长期服务',
+		description: '后续由专属服务团队持续提供售后、运营和活动支持。',
+	},
+];
 ---
 
-<Layout title="立刷POS官网 - 安全便捷的支付首选">
+<Layout title="立刷POS官网 - 安全便捷的支付首选" currentPath="/">
 	<!-- Hero Section -->
-	<section class="relative bg-gradient-to-br from-blue-700 to-blue-500 text-white py-24 md:py-32 overflow-hidden">
-		<!-- 装饰性背景元素 -->
-		<div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[600px] h-[600px] bg-blue-400 rounded-full blur-[120px] opacity-40 pointer-events-none"></div>
-		<div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[400px] h-[400px] bg-blue-600 rounded-full blur-[100px] opacity-50 pointer-events-none"></div>
+	<section class="relative bg-blue-600 text-white py-24 md:py-32 overflow-hidden">
+		<div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[500px] h-[500px] bg-blue-400 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
+		<div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[350px] h-[350px] bg-blue-500 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
 
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8">
@@ -137,46 +185,69 @@ const sortedNews = allNews.sort((a, b) => b.data.date.valueOf() - a.data.date.va
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-				<!-- 立刷1 -->
+				<!-- 立刷骐骥版 -->
 				<div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-shadow flex flex-col items-center">
-					<img src="/images/立刷1.png" alt="立刷1" class="h-48 md:h-56 object-contain mb-6 drop-shadow-md hover:scale-105 transition-transform" />
-					<h3 class="text-2xl font-bold text-gray-900 mb-3">立刷1</h3>
-					<p class="text-gray-600 text-center mb-6">经典机型，小巧便携，支持多种支付方式，商户收款的好帮手。</p>
+					<img src="/images/立刷骐骥版.webp" alt="立刷骐骥版" class="h-48 md:h-56 object-contain mb-6 drop-shadow-md hover:scale-105 transition-transform" />
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">立刷骐骥版</h3>
+					<p class="text-gray-600 text-center mb-4">高效智能收款终端，支持全渠道支付，极速到账，操作简便。</p>
+					<div class="w-full max-w-xs bg-white rounded-xl border border-blue-100 p-4 mb-4">
+						<div class="text-xs font-semibold text-blue-600 mb-2 text-center">费率说明</div>
+						<div class="grid grid-cols-2 gap-3 text-center">
+							<div>
+								<div class="text-lg font-bold text-gray-900">0.60%</div>
+								<div class="text-xs text-gray-500">刷卡费率</div>
+							</div>
+							<div>
+								<div class="text-lg font-bold text-gray-900">0.38%</div>
+								<div class="text-xs text-gray-500">扫码费率</div>
+							</div>
+						</div>
+					</div>
 					<ul class="text-sm text-gray-500 space-y-2 mb-6 w-full max-w-xs">
-						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 费率优惠，极速到账</li>
-						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 银联认证，安全可靠</li>
+						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 全渠道聚合，一机通用</li>
+						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 极速到账，资金灵活</li>
 					</ul>
-					<a href="#" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
+					<a href="/products/qiji" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
 				</div>
 
-				<!-- 立刷云电签 -->
+				<!-- 立刷畅想版 -->
 				<div class="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-shadow flex flex-col items-center">
-					<img src="/images/立刷云电签.png" alt="立刷云电签" class="h-48 md:h-56 object-contain mb-6 drop-shadow-md hover:scale-105 transition-transform" />
-					<h3 class="text-2xl font-bold text-gray-900 mb-3">立刷云电签</h3>
-					<p class="text-gray-600 text-center mb-6">新一代电签POS，内置流量卡，无需连接手机，独立完成收单。</p>
+					<img src="/images/立刷畅想版.webp" alt="立刷畅想版" class="h-48 md:h-56 object-contain mb-6 drop-shadow-md hover:scale-105 transition-transform" />
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">立刷畅想版</h3>
+					<p class="text-gray-600 text-center mb-4">轻巧便携设计，内置通讯模块，随时随地开启收款，移动经营首选。</p>
+					<div class="w-full max-w-xs bg-white rounded-xl border border-blue-100 p-4 mb-4">
+						<div class="text-xs font-semibold text-blue-600 mb-2 text-center">费率说明</div>
+						<div class="grid grid-cols-2 gap-3 text-center">
+							<div>
+								<div class="text-lg font-bold text-gray-900">0.60%</div>
+								<div class="text-xs text-gray-500">刷卡费率</div>
+							</div>
+							<div>
+								<div class="text-lg font-bold text-gray-900">0.38%</div>
+								<div class="text-xs text-gray-500">扫码费率</div>
+							</div>
+						</div>
+					</div>
 					<ul class="text-sm text-gray-500 space-y-2 mb-6 w-full max-w-xs">
-						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 电子签购单，环保高效</li>
-						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 高清大屏，操作便捷</li>
+						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 内置通讯，开机即用</li>
+						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 小巧便携，随身携带</li>
 					</ul>
-					<a href="#" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
+					<a href="/products/changxiang" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
 				</div>
 			</div>
 			
 			<!-- 支持的支付方式展示 -->
 			<div class="mt-20 text-center bg-gray-50 rounded-3xl p-8 md:p-12">
 				<h3 class="text-xl font-bold text-gray-900 mb-8">全渠道聚合支付，满足所有顾客需求</h3>
-				<div class="flex justify-center gap-8 md:gap-16 items-center flex-wrap opacity-80">
-					<img src="/images/unionpay.svg" alt="银联" class="h-10 md:h-12" />
-					<img src="/images/visa.svg" alt="Visa" class="h-8 md:h-10" />
-					<div class="text-2xl font-bold text-gray-700 flex items-center gap-2">
-						<svg class="w-8 h-8 text-green-500" viewBox="0 0 24 24" fill="currentColor"><path d="M8.2,13.78c-0.57,0-1.04-0.45-1.04-1.01c0-0.56,0.47-1.01,1.04-1.01c0.57,0,1.04,0.45,1.04,1.01C9.24,13.33,8.77,13.78,8.2,13.78z M14.36,13.78c-0.57,0-1.04-0.45-1.04-1.01c0-0.56,0.47-1.01,1.04-1.01c0.57,0,1.04,0.45,1.04,1.01C15.4,13.33,14.93,13.78,14.36,13.78z M11.28,6.86c-4.52,0-8.18,3.13-8.18,7c0,2.15,1.16,4.07,2.98,5.34l-0.79,2.44l2.84-1.42c1.01,0.28,2.06,0.43,3.15,0.43c4.52,0,8.18-3.13,8.18-7C19.46,9.99,15.8,6.86,11.28,6.86z"/></svg>
-						微信支付
-					</div>
-					<div class="text-2xl font-bold text-gray-700 flex items-center gap-2">
-						<svg class="w-8 h-8 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M21.2,13.44c0,5.08-4.14,9.2-9.22,9.2s-9.22-4.12-9.22-9.2s4.14-9.2,9.22-9.2S21.2,8.36,21.2,13.44z M17.06,12.53l-2.02-0.55c-0.12-0.03-0.2-0.14-0.2-0.27v-1.12c0-0.34,0.27-0.62,0.61-0.62h0.65c0.16,0,0.29-0.13,0.29-0.29V8.65c0-0.16-0.13-0.29-0.29-0.29h-0.65c-0.89,0-1.61,0.73-1.61,1.62v1.12c0,0.51,0.34,0.96,0.83,1.09l2.02,0.55c0.12,0.03,0.2,0.14,0.2,0.27v1.12c0,0.34-0.27,0.62-0.61,0.62h-1.28c-0.16,0-0.29,0.13-0.29,0.29v1.03c0,0.16,0.13,0.29,0.29,0.29h1.28c0.89,0,1.61-0.73,1.61-1.62v-1.12C17.89,13.04,17.55,12.59,17.06,12.53z M11.83,14.65c0-0.16-0.13-0.29-0.29-0.29h-1.28c-0.34,0-0.61-0.28-0.61-0.62v-1.12c0-0.13,0.08-0.24,0.2-0.27l2.02-0.55c0.49-0.13,0.83-0.58,0.83-1.09V9.59c0-0.89-0.72-1.62-1.61-1.62H9.81c-0.16,0-0.29,0.13-0.29,0.29v1.03c0,0.16,0.13,0.29,0.29,0.29h1.28c0.34,0,0.61,0.28,0.61,0.62v1.12c0,0.13-0.08,0.24-0.2,0.27l-2.02,0.55C8.89,12.27,8.55,12.72,8.55,13.23v1.12c0,0.89,0.72,1.62,1.61,1.62h1.28C11.6,14.94,11.83,14.81,11.83,14.65z"/></svg>
-						支付宝
-					</div>
-					<div class="text-2xl font-bold text-gray-700 flex items-center gap-2">云闪付</div>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+					{paymentMethods.map((item) => (
+						<div class="bg-white rounded-2xl border border-blue-50 px-4 py-5 shadow-sm hover:shadow-md transition-shadow">
+							<div class="h-14 flex items-center justify-center mb-3">
+								<img src={item.src} alt={item.alt} class={item.className} />
+							</div>
+							<div class="text-sm md:text-base font-semibold text-gray-700">{item.label}</div>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
@@ -190,35 +261,37 @@ const sortedNews = allNews.sort((a, b) => b.data.date.valueOf() - a.data.date.va
 				<p class="text-gray-500 max-w-2xl mx-auto">无论您身处哪个行业，立刷都能为您提供适配的收款终端，助力生意腾飞。</p>
 			</div>
 			
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-				<div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-blue-50 transition-colors group cursor-pointer border border-transparent hover:border-blue-100">
-					<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:scale-110 transition-transform">
-						<span class="text-2xl">🏪</span>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				{businessScenes.map((scene) => (
+					<div class="overflow-hidden rounded-3xl border border-blue-50 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+						<img src={scene.image} alt={scene.title} class="h-44 w-full object-cover" />
+						<div class="p-6">
+							<h4 class="font-bold text-gray-900 mb-2 text-lg">{scene.title}</h4>
+							<p class="text-sm text-gray-500">{scene.description}</p>
+						</div>
 					</div>
-					<h4 class="font-bold text-gray-900 mb-1">零售便利</h4>
-					<p class="text-xs text-gray-500">商超/便利店/生鲜</p>
-				</div>
-				<div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-blue-50 transition-colors group cursor-pointer border border-transparent hover:border-blue-100">
-					<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:scale-110 transition-transform">
-						<span class="text-2xl">🍜</span>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">办理流程简单，最快当天可用</h2>
+				<p class="text-gray-500 max-w-2xl mx-auto">从咨询到使用全程有顾问协助，帮助商户快速完成装机、激活与收款培训。</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+				{serviceSteps.map((step, index) => (
+					<div class="rounded-2xl bg-white border border-blue-50 p-6 shadow-sm hover:shadow-md transition-shadow">
+						<div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-5">
+							{index + 1}
+						</div>
+						<h3 class="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+						<p class="text-gray-600 leading-relaxed text-sm">{step.description}</p>
 					</div>
-					<h4 class="font-bold text-gray-900 mb-1">餐饮美食</h4>
-					<p class="text-xs text-gray-500">餐厅/小吃/茶饮</p>
-				</div>
-				<div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-blue-50 transition-colors group cursor-pointer border border-transparent hover:border-blue-100">
-					<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:scale-110 transition-transform">
-						<span class="text-2xl">👗</span>
-					</div>
-					<h4 class="font-bold text-gray-900 mb-1">服装百货</h4>
-					<p class="text-xs text-gray-500">服装鞋帽/美妆日化</p>
-				</div>
-				<div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-blue-50 transition-colors group cursor-pointer border border-transparent hover:border-blue-100">
-					<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:scale-110 transition-transform">
-						<span class="text-2xl">🚚</span>
-					</div>
-					<h4 class="font-bold text-gray-900 mb-1">物流移动</h4>
-					<p class="text-xs text-gray-500">快递外卖/移动摊贩</p>
-				</div>
+				))}
 			</div>
 		</div>
 	</section>
@@ -257,7 +330,21 @@ const sortedNews = allNews.sort((a, b) => b.data.date.valueOf() - a.data.date.va
 			</div>
 			
 			<div class="mt-8 text-center sm:hidden">
-				<a href="/news" class="inline-block bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-2 rounded-md text-sm font-medium transition-colors">查看全部资讯</a>
+				<a href="/news" class="inline-block bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-2 rounded-md text-sm font-medium transition-colors">资讯指南</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-20 bg-blue-600">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold text-white mb-5">立即开启智能收款</h2>
+			<p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">无论您是门店商户还是移动经营者，立刷都能为您提供适配的收款方案。</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-full font-bold text-lg transition-colors shadow-lg">免费申请</a>
+				<a href="tel:400-926-6655" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors">
+					400-926-6655
+				</a>
 			</div>
 		</div>
 	</section>

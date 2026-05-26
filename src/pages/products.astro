@@ -1,86 +1,229 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
 
-<Layout title="产品中心 - 立刷POS">
+<Layout title="产品中心 - 立刷POS" currentPath="/products">
 	<!-- Hero Section -->
-	<section class="relative bg-gray-900 text-white py-20 overflow-hidden">
-		<!-- 半透明遮罩 -->
-		<div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+	<section class="relative bg-blue-600 text-white py-20 md:py-28 overflow-hidden">
+		<div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[420px] h-[420px] bg-blue-400 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
+		<div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[320px] h-[320px] bg-blue-500 rounded-full blur-[110px] opacity-20 pointer-events-none"></div>
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center drop-shadow-md">
 			<h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">立刷全系列产品</h1>
 			<p class="text-xl text-gray-200 max-w-2xl mx-auto font-medium">针对不同经营场景提供定制化的收款解决方案</p>
 		</div>
 	</section>
 
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+		<Breadcrumbs items={[{label: '产品中心'}]} />
+	</div>
+
 	<!-- 产品列表 -->
-	<section class="py-16 bg-white">
+	<section class="py-8 md:py-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			
 			<div class="space-y-24">
-				<!-- 立刷1 -->
+				<!-- 立刷骐骥版 -->
 				<div class="flex flex-col md:flex-row items-center gap-12">
 					<div class="w-full md:w-1/2 flex justify-center bg-gray-50 rounded-3xl p-8 md:p-12">
-						<img src="/images/立刷1.png" alt="立刷1" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
+						<img src="/images/立刷骐骥版.webp" alt="立刷骐骥版" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
 					</div>
 					<div class="w-full md:w-1/2">
-						<div class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">经典畅销款</div>
-						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷微电签</h2>
+						<div class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">高效智能终端</div>
+						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷骐骥版</h2>
 						<p class="text-gray-600 text-lg mb-8 leading-relaxed">
-							立刷经典机型，小巧便携，支持多种支付方式，商户收款的好帮手。适合各类小型零售、餐饮及移动商户使用。
+							高效智能收款终端，支持银行卡、扫码、挥卡等全渠道支付方式，极速到账，操作简便，适合各类门店及移动商户。
 						</p>
+						<div class="bg-white rounded-xl border border-blue-100 p-4 mb-8 inline-block">
+							<div class="text-xs font-semibold text-blue-600 mb-2">费率说明</div>
+							<div class="flex gap-6">
+								<div class="text-center">
+									<div class="text-lg font-bold text-gray-900">0.60%</div>
+									<div class="text-xs text-gray-500">刷卡费率</div>
+								</div>
+								<div class="text-center">
+									<div class="text-lg font-bold text-gray-900">0.38%</div>
+									<div class="text-xs text-gray-500">扫码费率</div>
+								</div>
+							</div>
+						</div>
 						<ul class="space-y-4 mb-8">
 							<li class="flex items-start">
 								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 								<div>
-									<h4 class="font-bold text-gray-900">费率优惠</h4>
-									<p class="text-gray-500 text-sm">极具竞争力的刷卡费率，帮您节省每一分经营成本。</p>
+									<h4 class="font-bold text-gray-900">全渠道聚合</h4>
+									<p class="text-gray-500 text-sm">银行卡、扫码、挥卡一机通用，满足不同顾客支付习惯。</p>
 								</div>
 							</li>
 							<li class="flex items-start">
 								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 								<div>
-									<h4 class="font-bold text-gray-900">银联认证</h4>
-									<p class="text-gray-500 text-sm">通过银联多项安全认证，资金交易安全有保障。</p>
+									<h4 class="font-bold text-gray-900">极速到账</h4>
+									<p class="text-gray-500 text-sm">资金快速结算，费率透明，有效缓解商户资金周转压力。</p>
 								</div>
 							</li>
 						</ul>
-						<a href="/contact" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">免费办理</a>
+						<a href="/products/qiji" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">查看详情</a>
 					</div>
 				</div>
 
-				<!-- 立刷云电签 -->
+				<!-- 立刷畅想版 -->
 				<div class="flex flex-col md:flex-row-reverse items-center gap-12">
 					<div class="w-full md:w-1/2 flex justify-center bg-gray-50 rounded-3xl p-8 md:p-12">
-						<img src="/images/立刷云电签.png" alt="立刷云电签" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
+						<img src="/images/立刷畅想版.webp" alt="立刷畅想版" class="h-64 md:h-72 lg:h-80 object-contain drop-shadow-xl hover:scale-105 transition-transform" />
 					</div>
 					<div class="w-full md:w-1/2">
-						<div class="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">新一代智能终端</div>
-						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷云电签</h2>
+						<div class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">轻巧便携之选</div>
+						<h2 class="text-3xl font-bold text-gray-900 mb-6">立刷畅想版</h2>
 						<p class="text-gray-600 text-lg mb-8 leading-relaxed">
-							新一代电签POS，内置流量卡，无需连接手机即可独立完成收单。全电子化签购单，高清大屏，操作更顺畅。
+							轻巧便携设计，内置通讯模块，无需连接手机即可独立完成收单。随时随地开启收款，移动经营首选。
 						</p>
+						<div class="bg-white rounded-xl border border-blue-100 p-4 mb-8 inline-block">
+							<div class="text-xs font-semibold text-blue-600 mb-2">费率说明</div>
+							<div class="flex gap-6">
+								<div class="text-center">
+									<div class="text-lg font-bold text-gray-900">0.60%</div>
+									<div class="text-xs text-gray-500">刷卡费率</div>
+								</div>
+								<div class="text-center">
+									<div class="text-lg font-bold text-gray-900">0.38%</div>
+									<div class="text-xs text-gray-500">扫码费率</div>
+								</div>
+							</div>
+						</div>
 						<ul class="space-y-4 mb-8">
 							<li class="flex items-start">
 								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 								<div>
 									<h4 class="font-bold text-gray-900">内置通讯</h4>
-									<p class="text-gray-500 text-sm">自带4G/WiFi模块，开机即用，摆脱手机蓝牙连接的繁琐。</p>
+									<p class="text-gray-500 text-sm">自带流量卡，开机即用，摆脱手机蓝牙连接的繁琐。</p>
 								</div>
 							</li>
 							<li class="flex items-start">
 								<svg class="w-6 h-6 text-green-500 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 								<div>
-									<h4 class="font-bold text-gray-900">电子签单</h4>
-									<p class="text-gray-500 text-sm">直接在屏幕上完成签名，环保高效，免去换纸烦恼。</p>
+									<h4 class="font-bold text-gray-900">小巧便携</h4>
+									<p class="text-gray-500 text-sm">轻量化设计，随身携带，适合上门服务、移动摊贩等场景。</p>
 								</div>
 							</li>
 						</ul>
-						<a href="/contact" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">免费办理</a>
+						<a href="/products/changxiang" class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition-colors">查看详情</a>
 					</div>
 				</div>
 			</div>
 			
+		</div>
+	</section>
+
+	<section class="py-20 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">产品能力矩阵</h2>
+				<p class="text-gray-500 max-w-2xl mx-auto">从收款、结算到运营服务，围绕商户经营全流程提供稳定支持。</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="bg-white rounded-2xl p-8 shadow-sm border border-blue-50 hover:shadow-lg transition-shadow">
+					<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a5 5 0 00-10 0v2M5 9h14l-1 10H6L5 9z"></path></svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">全渠道收款</h3>
+					<p class="text-gray-600 leading-relaxed">支持银行卡、扫码、挥卡等多种支付方式，满足线下门店和移动经营不同收款需求。</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 shadow-sm border border-blue-50 hover:shadow-lg transition-shadow">
+					<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-3.314 0-6 1.79-6 4s2.686 4 6 4 6-1.79 6-4-2.686-4-6-4zm0 0V4m0 12v4"></path></svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">结算高效透明</h3>
+					<p class="text-gray-600 leading-relaxed">费率清晰、交易记录可追溯，帮助商户提升资金使用效率，减少日常对账负担。</p>
+				</div>
+				<div class="bg-white rounded-2xl p-8 shadow-sm border border-blue-50 hover:shadow-lg transition-shadow">
+					<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636A9 9 0 105.636 18.364m12.728-12.728L5.636 18.364"></path></svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">风控安全可靠</h3>
+					<p class="text-gray-600 leading-relaxed">依托多重认证与风控体系，帮助商户稳定经营，保障交易与设备使用安全。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-end">
+				<div>
+					<div class="inline-flex items-center rounded-full bg-blue-50 px-4 py-1.5 text-sm font-semibold text-blue-700 mb-5">适用场景</div>
+					<h2 class="text-3xl font-bold text-gray-900 mb-5">面向多行业商户的一站式设备方案</h2>
+					<p class="text-gray-600 leading-relaxed mb-8">
+						无论是门店驻店收款，还是外出展业、配送、摊位经营，立刷都可提供适配的收款终端与服务模式。
+					</p>
+					<div class="grid grid-cols-2 gap-4">
+						<div class="rounded-2xl bg-blue-50 p-5">
+							<div class="text-lg font-bold text-gray-900 mb-1">零售门店</div>
+							<p class="text-sm text-gray-600">高频收银、对账便捷、支持会员活动联动。</p>
+						</div>
+						<div class="rounded-2xl bg-blue-50 p-5">
+							<div class="text-lg font-bold text-gray-900 mb-1">餐饮茶饮</div>
+							<p class="text-sm text-gray-600">高峰时段快速响应，扫码收款体验更顺畅。</p>
+						</div>
+						<div class="rounded-2xl bg-blue-50 p-5">
+							<div class="text-lg font-bold text-gray-900 mb-1">上门服务</div>
+							<p class="text-sm text-gray-600">适合家政、维修、配送等移动经营场景。</p>
+						</div>
+						<div class="rounded-2xl bg-blue-50 p-5">
+							<div class="text-lg font-bold text-gray-900 mb-1">品牌连锁</div>
+							<p class="text-sm text-gray-600">多门店统一配置，服务支持更标准化。</p>
+						</div>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 gap-4">
+					<img src="/images/零售便利.webp" alt="零售便利场景" class="w-full aspect-[2/1] object-cover rounded-2xl shadow-sm" />
+					<img src="/images/餐饮美食.webp" alt="餐饮美食场景" class="w-full aspect-[2/1] object-cover rounded-2xl shadow-sm" />
+					<img src="/images/服装百货.webp" alt="服装百货场景" class="w-full aspect-[2/1] object-cover rounded-2xl shadow-sm" />
+					<img src="/images/物流移动.webp" alt="物流移动场景" class="w-full aspect-[2/1] object-cover rounded-2xl shadow-sm" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-14">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">办理流程</h2>
+				<p class="text-gray-500 max-w-2xl mx-auto">顾问协助资料准备、机型匹配与激活培训，缩短装机周期，让商户尽快投入使用。</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+				<div class="rounded-2xl bg-white p-6 shadow-sm border border-blue-50">
+					<div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-5">1</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">需求沟通</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">确认经营类型、收款频次与使用场景，推荐更合适的终端机型。</p>
+				</div>
+				<div class="rounded-2xl bg-white p-6 shadow-sm border border-blue-50">
+					<div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-5">2</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">资料提交</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">按要求提交基础资料，专人协助审核，减少反复沟通时间。</p>
+				</div>
+				<div class="rounded-2xl bg-white p-6 shadow-sm border border-blue-50">
+					<div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-5">3</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">快速装机</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">完成审核后安排发机与激活，指导首笔交易测试。</p>
+				</div>
+				<div class="rounded-2xl bg-white p-6 shadow-sm border border-blue-50">
+					<div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-5">4</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">售后服务</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">持续提供设备维护、问题答疑和活动运营支持。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 bg-blue-600">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold text-white mb-5">选择适合您的收款终端</h2>
+			<p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">顾问一对一沟通，根据您的经营场景推荐最合适的机型与方案。</p>
+			<div class="flex flex-wrap items-center justify-center gap-4">
+				<a href="/contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-full font-bold text-lg transition-colors shadow-lg">立即咨询</a>
+				<a href="tel:400-926-6655" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors">400-926-6655</a>
+			</div>
 		</div>
 	</section>
 </Layout>
