@@ -119,6 +119,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 	</section>
 
 	<script>
+		const FEISHU_WEBHOOK_URL = 'https://www.feishu.cn/flow/api/trigger-webhook/fcf533eb2a782b972061b0ec406f3dc7';
+
 		const form = document.getElementById('contact-form');
 		const status = document.getElementById('form-status');
 
@@ -132,38 +134,56 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 				}
 
 				const formData = new FormData(form);
-				const payload = {
-					name: String(formData.get('name') ?? '').trim(),
-					phone: String(formData.get('phone') ?? '').trim(),
-					company: String(formData.get('company') ?? '').trim(),
-					message: String(formData.get('message') ?? '').trim(),
-				};
+				const name = String(formData.get('name') ?? '').trim();
+				const phone = String(formData.get('phone') ?? '').trim();
+				const company = String(formData.get('company') ?? '').trim();
+				const message = String(formData.get('message') ?? '').trim();
+
+				if (!name || !phone || !message) {
+					status.textContent = '请完整填写姓名、电话和留言内容。';
+					status.className = 'rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-700';
+					return;
+				}
 
 				status.className = 'hidden rounded-lg px-4 py-3 text-sm font-medium';
 				submitButton.disabled = true;
 				submitButton.textContent = '提交中...';
 
 				try {
-					const response = await fetch('/api/contact', {
+					const response = await fetch(FEISHU_WEBHOOK_URL, {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json',
 						},
-						body: JSON.stringify(payload),
+						body: JSON.stringify({
+							name,
+							phone,
+							company,
+							message,
+							source: '立刷POS官网',
+							submit_time: new Intl.DateTimeFormat('zh-CN', {
+								timeZone: 'Asia/Shanghai',
+								year: 'numeric',
+								month: '2-digit',
+								day: '2-digit',
+								hour: '2-digit',
+								minute: '2-digit',
+								second: '2-digit',
+								hour12: false,
+							}).format(new Date()),
+						}),
 					});
 
-					const result = await response.json();
-
-					if (!response.ok || !result.success) {
-						throw new Error(result.message || '提交失败，请稍后重试');
+					if (!response.ok) {
+						throw new Error('提交失败，请稍后重试');
 					}
 
 					form.reset();
 					status.textContent = '提交成功，我们的工作人员会尽快联系您。';
 					status.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
 				} catch (error) {
-					const message = error instanceof Error ? error.message : '提交失败，请稍后重试';
-					status.textContent = message;
+					const msg = error instanceof Error ? error.message : '提交失败，请稍后重试';
+					status.textContent = msg;
 					status.className = 'rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-700';
 				} finally {
 					submitButton.disabled = false;
