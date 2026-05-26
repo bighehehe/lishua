@@ -4,9 +4,14 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	currentPath?: string;
+	description?: string;
+	keywords?: string;
+	ogImage?: string;
 }
 
-const { title, currentPath = '/' } = Astro.props;
+const { title, currentPath = '/', description = '立刷POS官网 - 嘉联支付旗下POS机品牌，为小微商户提供安全、便捷、高效的支付解决方案，支持刷卡、扫码、NFC全渠道聚合支付。', keywords = '', ogImage = '/images/logo.webp' } = Astro.props;
+
+const canonicalURL = `https://www.leeshua.com${currentPath}`;
 
 const navItems = [
 	{ href: '/', label: '首页' },
@@ -21,10 +26,22 @@ const navItems = [
 <html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="立刷POS官网 - 您的全能支付助手" />
+		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/webp" href="/images/logo.webp" />
+		<link rel="canonical" href={canonicalURL} />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={`https://www.leeshua.com${ogImage}`} />
+		<meta property="og:site_name" content="立刷POS官网" />
+		<meta property="og:locale" content="zh_CN" />
+
 		<title>{title}</title>
 	</head>
 	<body class="bg-gray-50 text-gray-900 font-sans">
@@ -238,6 +255,19 @@ const navItems = [
 					}
 				});
 			}
+		</script>
+		<script>
+			(function(){
+				var bp = document.createElement('script');
+				var curProtocol = window.location.protocol.split(':')[0];
+				if (curProtocol === 'https') {
+					bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+				} else {
+					bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+				}
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(bp, s);
+			})();
 		</script>
 	</body>
 </html>

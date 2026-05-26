@@ -20,7 +20,7 @@ const { entry, prev, next } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<Layout title={`${entry.data.title} - 立刷POS官网资讯`} currentPath="/news">
+<Layout title={`${entry.data.title} - 立刷POS官网资讯`} currentPath={`/news/${entry.id.replace(/\.md$/, '')}`} description={entry.data.description} keywords={entry.data.category ? `立刷POS机,${entry.data.category},POS机知识` : '立刷POS机,POS机知识'} ogImage={entry.data.image || '/images/logo.webp'}>
 	<div class="max-w-6xl mx-auto px-0 sm:px-6 lg:px-8 py-0 md:py-12">
 		<div class="px-4 md:px-0">
 			<Breadcrumbs items={[{label: '资讯动态', href: '/news'}, {label: entry.data.title}]} />
