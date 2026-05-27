@@ -68,8 +68,8 @@ const serviceSteps = [
 				<!-- 左侧文字内容 -->
 				<div class="w-full lg:w-[45%] text-left">
 					<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-[1.15] tracking-tight">
-						<span class="block mb-2">智能商业</span>
-						<span class="block">从每一次支付开始</span>
+						<span class="block mb-2">让每一笔交易</span>
+					<span class="block">更安全、更快捷</span>
 					</h1>
 					<p class="text-lg md:text-xl mb-10 text-blue-50 leading-relaxed font-normal opacity-90 max-w-xl">
 						全渠道聚合支付，极速到账。为零售、餐饮、娱乐等全行业提供一站式数字化经营解决方案，助力商户智慧升级。
@@ -79,20 +79,20 @@ const serviceSteps = [
 							了解产品
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
 						</a>
-						<a href="/contact" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors backdrop-blur-sm">
+						<a href="/contact#apply-form" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors backdrop-blur-sm">
 							立即申请
 						</a>
 					</div>
 				</div>
 
 				<!-- 右侧图片及浮浮窗 -->
-				<div class="w-full lg:w-[50%] relative">
+				<div class="w-full lg:w-[42%] relative">
 					<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
-						<img src="/images/lishua.png" alt="立刷收银场景" class="w-full h-auto object-cover" />
+						<img src="/images/立刷.webp" alt="立刷POS机" class="w-full h-auto object-cover" />
 					</div>
 					
 					<!-- 安全保障浮窗 -->
-					<div class="absolute -bottom-8 left-4 md:-left-8 bg-white text-gray-900 p-4 rounded-xl shadow-xl flex items-center gap-4 border border-gray-100 z-20 transform -rotate-2 hover:rotate-0 transition-transform">
+					<div class="hidden md:flex absolute -bottom-8 right-4 md:-right-8 bg-white text-gray-900 p-4 rounded-xl shadow-xl items-center gap-4 border border-gray-100 z-20 transform -rotate-2 hover:rotate-0 transition-transform">
 						<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
 							<svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
 						</div>
@@ -207,7 +207,10 @@ const serviceSteps = [
 						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 全渠道聚合，一机通用</li>
 						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 极速到账，资金灵活</li>
 					</ul>
-					<a href="/products/qiji" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
+					<div class="mt-auto flex gap-3 w-full">
+						<a href="/products/qiji" class="flex-1 bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-full font-medium transition-colors text-center text-sm">查看详情</a>
+						<a href="/contact?source=qiji#apply-form" class="flex-1 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-full font-medium transition-colors text-center text-sm">立即申请</a>
+					</div>
 				</div>
 
 				<!-- 立刷畅想版 -->
@@ -232,7 +235,10 @@ const serviceSteps = [
 						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 内置通讯，开机即用</li>
 						<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 小巧便携，随身携带</li>
 					</ul>
-					<a href="/products/changxiang" class="mt-auto bg-blue-100 text-blue-700 hover:bg-blue-200 px-6 py-2 rounded-full font-medium transition-colors w-full text-center">查看详情</a>
+					<div class="mt-auto flex gap-3 w-full">
+						<a href="/products/changxiang" class="flex-1 bg-blue-100 text-blue-700 hover:bg-blue-200 px-4 py-2 rounded-full font-medium transition-colors text-center text-sm">查看详情</a>
+						<a href="/contact?source=changxiang#apply-form" class="flex-1 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-full font-medium transition-colors text-center text-sm">立即申请</a>
+					</div>
 				</div>
 			</div>
 			
@@ -341,7 +347,7 @@ const serviceSteps = [
 			<h2 class="text-3xl md:text-4xl font-bold text-white mb-5">立即开启智能收款</h2>
 			<p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">无论您是门店商户还是移动经营者，立刷都能为您提供适配的收款方案。</p>
 			<div class="flex flex-wrap items-center justify-center gap-4">
-				<a href="/contact" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-full font-bold text-lg transition-colors shadow-lg">免费申请</a>
+				<a href="/contact#apply-form" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-full font-bold text-lg transition-colors shadow-lg">免费申请</a>
 				<a href="tel:400-926-6655" class="border border-white/50 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold text-lg transition-colors">
 					400-926-6655
 				</a>

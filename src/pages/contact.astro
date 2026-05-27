@@ -122,6 +122,20 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 		const form = document.getElementById('contact-form');
 		const status = document.getElementById('form-status');
 
+		const urlParams = new URLSearchParams(window.location.search);
+		const source = urlParams.get('source');
+		if (source) {
+			const messageField = form?.querySelector('textarea[name="message"]') as HTMLTextAreaElement | null;
+			if (messageField && !messageField.value.trim()) {
+				const sourceMap: Record<string, string> = {
+					agent: '我想咨询立刷POS机代理加盟事宜，请提供详细信息。',
+					qiji: '我想了解立刷骐骥版POS机的详细信息和办理流程。',
+					changxiang: '我想了解立刷畅想版POS机的详细信息和办理流程。',
+				};
+				messageField.value = sourceMap[source] || `我想咨询${source}相关事宜。`;
+			}
+		}
+
 		if (form instanceof HTMLFormElement && status instanceof HTMLElement) {
 			form.addEventListener('submit', async (event) => {
 				event.preventDefault();
