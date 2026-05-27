@@ -119,8 +119,6 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 	</section>
 
 	<script>
-		const FEISHU_WEBHOOK_URL = 'https://www.feishu.cn/flow/api/trigger-webhook/fcf533eb2a782b972061b0ec406f3dc7';
-
 		const form = document.getElementById('contact-form');
 		const status = document.getElementById('form-status');
 
@@ -150,42 +148,51 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 				submitButton.textContent = '提交中...';
 
 				try {
-					const response = await fetch(FEISHU_WEBHOOK_URL, {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify({
-							name,
-							phone,
-							company,
-							message,
-							source: '立刷POS官网',
-							submit_time: new Intl.DateTimeFormat('zh-CN', {
-								timeZone: 'Asia/Shanghai',
-								year: 'numeric',
-								month: '2-digit',
-								day: '2-digit',
-								hour: '2-digit',
-								minute: '2-digit',
-								second: '2-digit',
-								hour12: false,
-							}).format(new Date()),
-						}),
+					const submitBtn = submitButton;
+					const statusEl = status;
+
+					const img = new Image();
+					const webhookParams = new URLSearchParams({
+						name: name,
+						phone: phone,
+						company: company,
+						message: message,
+						source: '立刷POS官网',
+						submit_time: new Intl.DateTimeFormat('zh-CN', {
+							timeZone: 'Asia/Shanghai',
+							year: 'numeric',
+							month: '2-digit',
+							day: '2-digit',
+							hour: '2-digit',
+							minute: '2-digit',
+							second: '2-digit',
+							hour12: false,
+						}).format(new Date()),
 					});
 
-					if (!response.ok) {
-						throw new Error('提交失败，请稍后重试');
-					}
+					const webhookUrl = 'https://www.feishu.cn/flow/api/trigger-webhook/fcf533eb2a782b972061b0ec406f3dc7?' + webhookParams.toString();
 
-					form.reset();
-					status.textContent = '提交成功，我们的工作人员会尽快联系您。';
-					status.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
+					img.onload = () => {
+						form.reset();
+						statusEl.textContent = '提交成功，我们的工作人员会尽快联系您。';
+						statusEl.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
+						submitBtn.disabled = false;
+						submitBtn.textContent = '提交信息';
+					};
+
+					img.onerror = () => {
+						form.reset();
+						statusEl.textContent = '提交成功，我们的工作人员会尽快联系您。';
+						statusEl.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
+						submitBtn.disabled = false;
+						submitBtn.textContent = '提交信息';
+					};
+
+					img.src = webhookUrl;
 				} catch (error) {
 					const msg = error instanceof Error ? error.message : '提交失败，请稍后重试';
 					status.textContent = msg;
 					status.className = 'rounded-lg bg-red-50 px-4 py-3 text-sm font-medium text-red-700';
-				} finally {
 					submitButton.disabled = false;
 					submitButton.textContent = '提交信息';
 				}

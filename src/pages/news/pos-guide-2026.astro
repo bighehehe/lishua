@@ -345,21 +345,19 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 		<!-- 推荐阅读 -->
 		<section class="mb-8">
 			<h2 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">推荐阅读</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				{[
-					{ label: '办理专题', title: '立刷POS机怎么办理？个人和小微商户申请流程说明' },
-					{ label: '费率专题', title: '立刷POS机费率是多少？刷卡、扫码、云闪付怎么区分' },
-					{ label: '费用专题', title: '立刷POS机有没有押金？流量费每年都会扣吗？' },
-					{ label: '使用专题', title: '立刷POS机怎么激活？注册认证、绑定设备、首刷教程' },
-					{ label: '售后专题', title: '立刷POS机刷卡不到账怎么办？先按这5步排查' },
-					{ label: '合规专题', title: '立刷POS机是正规的吗？怎么判断POS机是否正规' },
-					{ label: '对比专题', title: '立刷POS机和拉卡拉POS机哪个好？个人用户怎么选' },
-					{ label: '代理专题', title: '立刷POS机代理怎么做？新手入门指南' },
+					{ label: '办理流程', title: '立刷POS机怎么办理？个人和小微商户申请流程说明', href: '/news/lishua-pos-banli' },
+					{ label: '个人办理', title: '个人可以办理立刷POS机吗？需要准备哪些资料', href: '/news/lishua-pos-geren-banli' },
+					{ label: '小微商户', title: '小微商户办理立刷POS机需要营业执照吗？', href: '/news/lishua-pos-xiaowei-banli' },
+					{ label: '资料准备', title: '立刷POS机办理需要哪些资料？申请前先准备这些', href: '/news/lishua-pos-ziliao' },
+					{ label: '免费办理', title: '立刷POS机免费办理是真的吗？哪些费用要提前问清楚', href: '/news/lishua-pos-mianfei' },
+					{ label: '渠道选择', title: '立刷POS机办理渠道怎么选？正规渠道主要看这几点', href: '/news/lishua-pos-qudao' },
 				].map((item) => (
-					<div class="flex items-center gap-2 py-1">
-						<span class="text-blue-600 border border-blue-600 px-1.5 py-0.5 rounded text-xs whitespace-nowrap">{item.label}</span>
-						<span class="text-gray-700 truncate">{item.title}</span>
-					</div>
+					<a href={item.href} class="group flex items-start gap-2 py-2 hover:bg-blue-50 rounded-lg px-3 transition-colors">
+						<span class="text-blue-600 border border-blue-600 px-1.5 py-0.5 rounded text-xs whitespace-nowrap mt-0.5 flex-shrink-0">{item.label}</span>
+						<span class="text-gray-700 group-hover:text-blue-600 text-sm leading-snug">{item.title}</span>
+					</a>
 				))}
 			</div>
 		</section>
