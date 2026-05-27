@@ -18,7 +18,7 @@ body {
 	@apply text-xl font-bold text-gray-900 mt-6 mb-3;
 }
 .prose a {
-	@apply text-blue-600 font-semibold underline decoration-blue-300 underline-offset-2 hover:text-blue-800 hover:decoration-blue-500 transition-colors;
+	@apply text-blue-600 font-semibold no-underline hover:text-blue-800 transition-colors;
 }
 .prose p {
 	@apply mb-4 leading-relaxed;
