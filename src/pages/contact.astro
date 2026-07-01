@@ -122,6 +122,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 		const form = document.getElementById('contact-form');
 		const status = document.getElementById('form-status');
 
+		function formatSubmitTime() {
+			const now = new Date();
+			const pad = (value: number) => String(value).padStart(2, '0');
+			return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+		}
+
 		const urlParams = new URLSearchParams(window.location.search);
 		const source = urlParams.get('source');
 		if (source) {
@@ -162,47 +168,31 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 				submitButton.textContent = '提交中...';
 
 				try {
-					const submitBtn = submitButton;
-					const statusEl = status;
+					const payload = {
+						姓名: name,
+						电话: phone,
+						产品: company || '在线留言',
+						留言: message,
+						网站: '立刷',
+						来源: source || '联系我们',
+						时间: formatSubmitTime(),
+					};
 
-					const img = new Image();
-					const webhookParams = new URLSearchParams({
-						name: name,
-						phone: phone,
-						company: company,
-						message: message,
-						source: '立刷POS官网',
-						submit_time: new Intl.DateTimeFormat('zh-CN', {
-							timeZone: 'Asia/Shanghai',
-							year: 'numeric',
-							month: '2-digit',
-							day: '2-digit',
-							hour: '2-digit',
-							minute: '2-digit',
-							second: '2-digit',
-							hour12: false,
-						}).format(new Date()),
+					const response = await fetch('https://text.pingbal.com/webhook', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(payload),
 					});
 
-					const webhookUrl = 'https://www.feishu.cn/flow/api/trigger-webhook/fcf533eb2a782b972061b0ec406f3dc7?' + webhookParams.toString();
+					if (!response.ok) {
+						throw new Error('提交失败，请稍后重试');
+					}
 
-					img.onload = () => {
-						form.reset();
-						statusEl.textContent = '提交成功，我们的工作人员会尽快联系您。';
-						statusEl.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
-						submitBtn.disabled = false;
-						submitBtn.textContent = '提交信息';
-					};
-
-					img.onerror = () => {
-						form.reset();
-						statusEl.textContent = '提交成功，我们的工作人员会尽快联系您。';
-						statusEl.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
-						submitBtn.disabled = false;
-						submitBtn.textContent = '提交信息';
-					};
-
-					img.src = webhookUrl;
+					form.reset();
+					status.textContent = '提交成功，我们的工作人员会尽快联系您。';
+					status.className = 'rounded-lg bg-green-50 px-4 py-3 text-sm font-medium text-green-700';
+					submitButton.disabled = false;
+					submitButton.textContent = '提交信息';
 				} catch (error) {
 					const msg = error instanceof Error ? error.message : '提交失败，请稍后重试';
 					status.textContent = msg;

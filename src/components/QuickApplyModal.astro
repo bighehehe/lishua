@@ -37,7 +37,7 @@ const { type = 'simple' } = Astro.props;
 </div>
 
 <script>
-	const FEISHU_WEBHOOK_URL = 'https://www.feishu.cn/flow/api/trigger-webhook/fcf533eb2a782b972061b0ec406f3dc7';
+	const WEBHOOK_URL = 'https://text.pingbal.com/webhook';
 
 	const modal = document.getElementById('quick-apply-modal') as HTMLElement | null;
 	const overlay = document.getElementById('modal-overlay');
@@ -66,9 +66,16 @@ const { type = 'simple' } = Astro.props;
 		}
 
 		if (sourceInput) sourceInput.value = source;
+		modal.dataset.product = title || source || (type === 'agent' ? '代理加盟' : 'POS机咨询');
 		modal.classList.remove('hidden');
 		modal.classList.add('flex');
 		document.body.style.overflow = 'hidden';
+	}
+
+	function formatSubmitTime() {
+		const now = new Date();
+		const pad = (value: number) => String(value).padStart(2, '0');
+		return `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 	}
 
 	function closeModal() {
@@ -108,35 +115,26 @@ const { type = 'simple' } = Astro.props;
 		submitBtn.disabled = true;
 		submitBtn.textContent = '提交中...';
 
-		const submitTime = new Intl.DateTimeFormat('zh-CN', {
-			timeZone: 'Asia/Shanghai',
-			year: 'numeric',
-			month: '2-digit',
-			day: '2-digit',
-			hour: '2-digit',
-			minute: '2-digit',
-			second: '2-digit',
-			hour12: false,
-		}).format(new Date());
-
-		const params = new URLSearchParams({
-			name,
-			phone,
-			source: source || '立刷POS官网',
-			message: region ? `地区：${region}` : '',
-			submit_time: submitTime,
-			...(region ? { region } : {}),
-		});
+		const payload = {
+			姓名: name,
+			电话: phone,
+			产品: modal?.dataset.product || source || 'POS机咨询',
+			留言: region ? `地区：${region}` : '快速申请',
+			网站: '立刷',
+			来源: source || '弹窗申请',
+			时间: formatSubmitTime(),
+		};
 
 		try {
-			const img = new Image();
-			const promise = new Promise<void>((resolve, reject) => {
-				img.onload = () => resolve();
-				img.onerror = () => resolve();
-				setTimeout(() => resolve(), 3000);
+			const response = await fetch(WEBHOOK_URL, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload),
 			});
-			img.src = `${FEISHU_WEBHOOK_URL}?${params.toString()}`;
-			await promise;
+
+			if (!response.ok) {
+				throw new Error('提交失败，请稍后重试');
+			}
 
 			form.reset();
 			statusEl.textContent = '提交成功！工作人员会尽快联系您。';
