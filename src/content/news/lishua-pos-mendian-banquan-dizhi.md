@@ -3,6 +3,7 @@ title: "立刷POS机门店搬迁后需要修改经营地址吗？"
 date: 2026-11-23
 description: '立刷POS机门店搬迁后，应核查商户登记地址和设备实际使用地点是否需要更新。不要将终端直接长期移至新地址使用而忽略入网资料及终端管理要求，跨区域搬迁尤其应先咨询收单服务渠道。'
 category: "使用教程类"
+keywords: "立刷POS机经营地址变更,立刷门店搬迁,POS机移机申请"
 image: "/articles_cover/lishua-pos-mendian-banquan-dizhi.webp"
 ---
 

@@ -3,6 +3,7 @@ title: "办理立刷POS机必须本人操作吗？代办有哪些风险"
 date: 2026-08-30
 description: '办理立刷POS机，涉及身份证、银行卡、手机号、人脸识别、设备绑定和结算账户等信息，原则上应由本人完成关键操作。代办看似省事，但可能带来资料泄露、账户被他人掌握、结算卡错误、售后核验困难等风险。'
 category: "办理申请类"
+keywords: "立刷POS机代办,办理立刷POS机必须本人吗"
 image: "/articles_cover/lishua-pos-daiban1.webp"
 ---
 

@@ -3,6 +3,7 @@ title: "个体工商户变更经营者后，原立刷POS机还能用吗？"
 date: 2026-11-19
 description: '个体工商户变更经营者后，原立刷POS机是否还能使用，取决于入网主体、营业执照、实名负责人和结算账户的变更审核结果。原设备不能因门店继续营业就默认可直接转给新经营者。'
 category: "办理申请类"
+keywords: "立刷POS机经营者变更,个体工商户POS机变更,立刷商户主体变更"
 image: "/articles_cover/lishua-pos-jingyingzhe-biangen.webp"
 ---
 

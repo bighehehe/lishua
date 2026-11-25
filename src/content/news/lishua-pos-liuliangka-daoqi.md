@@ -3,6 +3,7 @@ title: "立刷POS机流量卡到期怎么办？续费、更换和停用说明"
 date: 2026-09-21
 description: '立刷POS机流量卡到期，可能导致无法联网、无法签到、交易失败等问题。处理时应先确认是否确实为流量卡问题，再联系服务商确认续费、更换、停用或解绑方式。'
 category: "故障售后类"
+keywords: "立刷流量卡到期,立刷POS机流量卡"
 image: "/articles_cover/lishua-pos-liuliangka-daoqi.webp"
 ---
 

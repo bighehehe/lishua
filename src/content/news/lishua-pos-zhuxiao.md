@@ -3,6 +3,7 @@ title: "立刷POS机不用了需要注销吗？停用、解绑和扣费风险说
 date: 2026-10-28
 description: '立刷POS机不用了，不建议随手丢弃或长期放置不管。用户应确认设备是否已激活、是否绑定结算卡、是否还有流量费、是否需要解绑或停用，以及是否存在押金未处理问题。'
 category: "安全合规类"
+keywords: "立刷POS机不用了需要注销吗,立刷POS机停用,立刷POS机解绑"
 image: "/articles_cover/lishua-pos-zhuxiao.webp"
 ---
 

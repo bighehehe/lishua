@@ -3,6 +3,7 @@ title: "一张营业执照能申请几台立刷POS机？多终端办理注意事
 date: 2026-11-24
 description: '一张营业执照可以办理几台立刷POS机，没有适用于所有商户和机型的固定数量。收单机构通常会结合经营规模、收款场景、终端管理和风险情况审核，重点是每台设备对应清楚的商户及终端信息。'
 category: "办理申请类"
+keywords: "一张营业执照办几台立刷POS机,立刷多终端,POS机一机一码"
 image: "/articles_cover/lishua-pos-yizhang-zhizhao-jitai.webp"
 ---
 

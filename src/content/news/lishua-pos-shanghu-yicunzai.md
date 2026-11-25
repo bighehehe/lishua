@@ -3,6 +3,7 @@ title: "立刷POS机提示“商户已存在”怎么办？重复注册与账户
 date: 2026-11-11
 description: '立刷POS机注册提示“商户已存在”，可能是原手机号或身份证已有入网记录，也可能是商户资料、设备绑定关系重复。先核对账号与商户编号，再按官方身份核验流程找回或处理，不建议换资料反复注册。'
 category: "办理申请类"
+keywords: "立刷POS机商户已存在,立刷重复注册,立刷账户找回"
 image: "/articles_cover/lishua-pos-shanghu-yicunzai.webp"
 ---
 

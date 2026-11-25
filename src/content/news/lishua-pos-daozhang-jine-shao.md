@@ -3,6 +3,7 @@ title: "立刷POS机到账金额为什么比刷卡金额少？手续费和扣费
 date: 2026-09-05
 description: '立刷POS机到账金额比刷卡金额少，通常是因为扣除了交易手续费，也可能涉及秒到费、流量费、服务费或其他费用。用户应先核对交易金额、到账金额、交易方式、费率和扣费明细，再判断是否异常。'
 category: "费率费用类"
+keywords: "立刷到账金额少,立刷POS机刷卡金额对不上"
 image: "/articles_cover/lishua-pos-daozhang-jine-shao.webp"
 ---
 

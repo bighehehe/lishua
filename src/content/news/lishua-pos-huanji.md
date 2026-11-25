@@ -3,6 +3,7 @@ title: "立刷POS机机器坏了怎么换？换机流程和注意事项"
 date: 2026-09-23
 description: '立刷POS机机器坏了，应先判断是电量、网络、系统、流量卡问题，还是设备硬件故障。确认需要换机时，要准备设备编号、绑定手机号、故障照片或视频，并联系办理渠道或官方客服按流程处理。'
 category: "故障售后类"
+keywords: "立刷POS机换机,立刷POS机机器坏了"
 image: "/articles_cover/lishua-pos-huanji.webp"
 ---
 

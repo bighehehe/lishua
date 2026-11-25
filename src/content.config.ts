@@ -9,6 +9,7 @@ const newsCollection = defineCollection({
 		description: z.string(),
 		image: z.string().optional(),
 		category: z.string().default('全部'),
+		keywords: z.string().optional(),
 	}),
 });
 

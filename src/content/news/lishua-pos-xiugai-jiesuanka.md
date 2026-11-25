@@ -3,6 +3,7 @@ title: "立刷POS机怎么修改结算卡？换卡前先注意这几件事"
 date: 2026-09-12
 description: '立刷POS机修改结算卡，通常涉及账户身份核验、银行卡信息验证和系统审核。换卡前要确认新卡是否本人名下、状态是否正常、是否支持入账，以及修改期间是否影响到账。不要随便绑定他人银行卡。'
 category: "使用教程类"
+keywords: "立刷修改结算卡,立刷POS机换结算卡"
 image: "/articles_cover/lishua-pos-xiugai-jiesuanka.webp"
 ---
 

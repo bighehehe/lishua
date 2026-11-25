@@ -3,6 +3,7 @@ title: "立刷POS机代理怎么做？新手入门指南"
 date: 2026-08-24
 description: '做立刷POS机代理，不只是发机器，更重要的是获客、激活、售后和客户维护。新手做代理前，要先理解嘉联支付与立刷产品背景、代理政策、分润规则、返现条件、售后责任和潜在风险。'
 category: "对比代理类"
+keywords: "立刷POS机代理,立刷代理怎么做"
 image: "/articles_cover/lishua-pos-daili.webp"
 ---
 

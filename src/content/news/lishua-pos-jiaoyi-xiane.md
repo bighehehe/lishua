@@ -3,6 +3,7 @@ title: "立刷POS机交易限额在哪里看？单笔和单日限额说明"
 date: 2026-09-16
 description: '立刷POS机交易限额可能包括单笔限额、单日限额、扫码限额、刷卡限额、不同卡种限额等。用户应通过APP、设备提示、办理渠道或客服确认当前规则，避免因为超限导致交易失败或被拒。'
 category: "使用教程类"
+keywords: "立刷交易限额,立刷POS机单笔限额,立刷POS机单日限额"
 image: "/articles_cover/lishua-pos-jiaoyi-xiane.webp"
 ---
 
